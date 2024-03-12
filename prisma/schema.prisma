@@ -1,0 +1,46 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum user {
+  Siswa
+  Alumni
+  Admin
+}
+
+enum jeniskelamin {
+  LakiLaki
+  Perempuan
+}
+
+model Users {
+  id           Int          @id @default(autoincrement())
+  image        String
+  nama         String
+  jeniskelamin jeniskelamin
+  user        user
+  email        String       @unique
+  password     String
+  alamat       String
+  tempat       String
+  tanggalLahir DateTime
+  waktu        DateTime     @default(now())
+}
+
+model Posts {
+  id               Int      @id @default(autoincrement())
+  image            String
+  nama             String
+  hashtag          String[]
+  deskripsisingkat String
+  deskripsipanjang String
+  alamat           String
+  email            String   @unique
+  waktu            DateTime @default(now())
+  genre            String
+}
