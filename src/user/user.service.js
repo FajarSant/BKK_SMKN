@@ -50,7 +50,7 @@ const DeleteUserById = async (id) => {
       }
       const deletedUser = await prisma.users.delete({
         where: {
-          id,
+          id,  
         },
       });
   
@@ -60,7 +60,7 @@ const DeleteUserById = async (id) => {
     }
   };
 
-  const EditUserById = async (id, userData) => {
+const EditUserById = async (id, userData) => {
     const user = await prisma.users.update({
       where: {
         id: Number(id), // Menggunakan parameter 'id' yang diterima dari fungsi
