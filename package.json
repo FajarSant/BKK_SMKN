@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "nodemon src/index.js"
+    "start": "nodemon src/index.js",
+    "postinstall": "prisma generate",
+    "build": "prisma generate && tsc -p ."
   },
   "keywords": [],
   "author": "",
